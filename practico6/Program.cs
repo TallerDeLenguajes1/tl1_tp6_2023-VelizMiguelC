@@ -37,38 +37,66 @@ void invertirNum()
     }
 
 }
-void calculadora()
+int calculadora(int operacion, int num1, int num2)
 {
-    int operacion, num1, num2;
-    System.Console.WriteLine("--------Esta usando la calculadora--------");
+    /* int operacion, num1, num2; */
+  /*   System.Console.WriteLine("--------Esta usando la calculadora--------");
     System.Console.WriteLine("0-Suma");
     System.Console.WriteLine("1-Resta");
     System.Console.WriteLine("2-Division");
-    System.Console.WriteLine("3-Multiplicacion");
+    System.Console.WriteLine("3-Multiplicacion"); 
     int.TryParse(Console.ReadLine(), out operacion);
     System.Console.WriteLine("Ingrese el primer numero a operar");
     int.TryParse(Console.ReadLine(), out num1);
     System.Console.WriteLine("Ingrese el segundo numero a operar");
-    int.TryParse(Console.ReadLine(), out num2);
+    int.TryParse(Console.ReadLine(), out num2); 
     switch (operacion)
     {
         case 0:
-            System.Console.WriteLine("El resultado es:" + (num1 + num2));
+        return (num1 + num2);
+             System.Console.WriteLine("El resultado es:" + (num1 + num2)); 
             break;
         case 1:
-            System.Console.WriteLine("El resultado es:" + (num1 - num2));
+        return (num1 - num2);
+             System.Console.WriteLine("El resultado es:" + (num1 - num2)); 
             break;
         case 2:
-            System.Console.WriteLine("El resultado es:" + (num1 / num2));
+        return (num1 / num2);
+             System.Console.WriteLine("El resultado es:" + (num1 / num2)); 
             break;
         case 3:
-            System.Console.WriteLine("El resultado es:" + (num1 * num2));
+        return (num1 * num2);
+             System.Console.WriteLine("El resultado es:" + (num1 * num2)); 
             break;
         default:
-            System.Console.WriteLine("No ingreso una operacion valida");
+             System.Console.WriteLine("No ingreso una operacion valida"); 
+            break;
+    }  */ 
+    int resultado = 0;
+    
+    // Lógica de la calculadora
+    switch (operacion)
+    {
+        case 1: // Suma
+            resultado = num1 + num2;
+            break;
+        case 2: // Resta
+            resultado = num1 - num2;
+            break;
+        case 3: // Multiplicación
+            resultado = num1 * num2;
+            break;
+        case 4: // División
+            resultado = num1 / num2;
+            break;
+        default:
+            Console.WriteLine("Operación no válida");
             break;
     }
+    
+    return resultado;
 }
+
 void calculadoraV2()
 {
     double num1, num2, num3;
@@ -90,8 +118,85 @@ void calculadoraV2()
 
 
 }
+void stringa(){
+    string cadena, cadena2,cadena3,subcadena,buscada;
+    int num;
+    int operacion, num1, num2;
+    System.Console.WriteLine("Ingrese la cadena de caracteres:");
+    cadena=Console.ReadLine();
+    num=cadena.Length;
+    System.Console.WriteLine("La longitud de la cadena es:" + num);
+    System.Console.WriteLine("Ingrese la segunda cadena de caracteres:");
+    cadena2=Console.ReadLine();
+    cadena3=cadena + cadena2;
+    System.Console.WriteLine("La cadena despues de la union queda como:" + cadena3);
+    subcadena=cadena3.Substring(1,4);
+    System.Console.WriteLine("La subcadena es:"+subcadena);
+    System.Console.WriteLine("--------Esta usando la calculadora--------");
+    System.Console.WriteLine("Ingrese el primer numero a operar");
+    int.TryParse(Console.ReadLine(), out num1);
+    System.Console.WriteLine("Ingrese el segundo numero a operar");
+    int.TryParse(Console.ReadLine(), out num2); 
+    num=calculadora(1,num1,num2);
+    System.Console.WriteLine("La suma de" + num1 + " y " + num2 + "es:" + num);
+    foreach (char caracter in cadena3)
+{
+    Console.WriteLine(caracter);
+}
+System.Console.WriteLine("Ingrese la palabra buscada:");
+buscada=Console.ReadLine();
+if (cadena.Contains(buscada))
+{
+    System.Console.WriteLine("La palabra buscada se encuentra en la cadena");
+}else
+{
+    System.Console.WriteLine("La palabra buscada no se encuentra en la cadena");
+}
+System.Console.WriteLine("La cadena en mayusculas es:" + cadena.ToUpper());
+System.Console.WriteLine("La cadena en minusculas es:" + cadena.ToLower());
+System.Console.WriteLine("Ingrese una cadena separada por caracteres:");
+cadena = Console.ReadLine();
+Console.WriteLine("Ingrese el carácter separador:");
+string separador = Console.ReadLine();
+string[] subcadenass = cadena.Split(separador);
+Console.WriteLine("Resultados:");
+foreach (string subcadenas in subcadenass)
+{
+    Console.WriteLine(subcadenas);
+}
+Console.WriteLine("Ingrese una ecuación simple (por ejemplo, '582+2'):");
+string ecuacion = Console.ReadLine();
+
+char operador = ecuacion.FirstOrDefault(c => c == '+' || c == '-' || c == '*' || c == '/');
+int operador1=0;
+switch (operador)
+{
+    case '+':
+            operador1=1;
+            break;
+        case '-':
+            operador1=2;
+            break;
+        case '*':
+            operador1=3;
+            break;
+        case '/':
+            operador1=4;
+            break;
+        default:
+            Console.WriteLine("Operador no válido");
+            break;
+
+}
+string[] operandos = ecuacion.Split(operador);
+int.TryParse(operandos[0], out int num11);
+int.TryParse(operandos[1], out int num21);
+System.Console.WriteLine("El resultado es:"+calculadora(operador1,num11,num21)); 
+}
 
 /* invertirNum();
 
 calculadora(); */
-calculadoraV2();
+/* calculadoraV2();
+ */
+ 
